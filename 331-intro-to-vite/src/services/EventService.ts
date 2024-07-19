@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-    baseURL: 'https://my-json-server.typicode.com/Leviathun/DatabaseJason',
+    baseURL: 'https://my-json-server.typicode.com/Leviathun/DatabaseJason/events/5928101',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
@@ -10,7 +10,10 @@ const apiClient = axios.create({
 })
 
 export default {
-    getEvents() {
+    getEvents()  {
         return apiClient.get('/events')
+    },
+    getEvent(id: number) {
+        return apiClient.get('/events/' + id)
     }
 }
