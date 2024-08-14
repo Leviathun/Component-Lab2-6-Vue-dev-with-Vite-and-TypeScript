@@ -23,5 +23,5 @@ const register = () => {
 
 <template>
     <p>Register event here</p>
-    <button @click="register">Register</button>
+    <button class="border-2 rounded px-[20px] mt-[20px] hover:bg-violet-600 hover:text-white  active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300" @click="register">Register</button>
 </template>

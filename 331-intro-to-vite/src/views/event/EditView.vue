@@ -23,5 +23,5 @@ const edit = () => {
 
 <template>
     <p>Edit event here</p>
-    <button @click="edit">Edit</button>
+    <button class="border-2 rounded px-[20px] mt-[20px] hover:bg-violet-600 hover:text-white  active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300" @click="edit">Edit</button>
 </template>
