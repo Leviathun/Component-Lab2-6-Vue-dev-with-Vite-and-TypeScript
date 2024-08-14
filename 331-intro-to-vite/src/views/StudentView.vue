@@ -1,10 +1,10 @@
 <script setup lang="ts">
   import StudentCard from '@/components/StudentCard.vue';
-  import Student from '@/types/Student'
+  import type {Student} from '@/types'
   import { ref , onMounted } from 'vue'
   import StudentService from '@/services/StudentService';
 
-  const Students = ref<Student[]>(null)
+  const Students = ref<Student[]>()
 
   onMounted (() => {
     StudentService.getStudent() 
