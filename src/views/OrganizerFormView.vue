@@ -28,22 +28,45 @@ function saveEvent() {
 </script>
 
 <template>
-    <div>
-        <h1>Create an event</h1>
-        <form @submit.prevent="saveEvent">
-            
-            <h3>Name & describe your event</h3>
-            <label>Title</label>
-            <input v-model="organizer.organizationName" type="text" placeholder="organizationName" class="field"/>
-            
-            <h3>Where is your event?</h3>
-            <label>Address</label>
-            <input v-model="organizer.address" type="text" placeholder="address" class="field" />
-
-            <button class="button" type="submit">Submit</button>
-
-        </form>
-
-        <pre>{{ organizer }}</pre>
+    <div class="max-w-2xl mx-auto p-6">
+      <h1 class="text-3xl font-bold mb-6">Create an Organizer</h1>
+      <form @submit.prevent="saveEvent" class="space-y-6">
+        <div>
+          <h3 class="text-xl font-semibold mb-3">Name your organization</h3>
+          <div>
+            <label for="organizationName" class="block text-sm font-medium text-gray-700 mb-1">Organization Name</label>
+            <input
+              v-model="organizer.organizationName"
+              id="organizationName"
+              type="text"
+              placeholder="Organization Name"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+        </div>
+  
+        <div>
+          <h3 class="text-xl font-semibold mb-3">Where is your organization located?</h3>
+          <div>
+            <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+            <input
+              v-model="organizer.address"
+              id="address"
+              type="text"
+              placeholder="Address"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+        </div>
+  
+        <button
+          type="submit"
+          class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          Submit
+        </button>
+      </form>
+  
+      <pre class="mt-8 p-4 bg-gray-100 rounded-md overflow-auto">{{ organizer }}</pre>
     </div>
-</template>
+  </template>
