@@ -11,6 +11,7 @@ import NetworkErrorView from '@/views/NetworkErrorView.vue'
 import nProgress from 'nprogress'
 import EventService from '@/services/EventService'
 import { useEventStore } from '@/stores/event'
+import AddEventView from '@/views/EventFormView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -77,6 +78,11 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       
       component: AboutView
+    },
+    {
+      path: '/add-event',
+      name: 'add-event',
+      component: AddEventView
     },
     {
       path: '/404/:resource',
