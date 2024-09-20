@@ -25,3 +25,9 @@ export interface MessageState{
 export interface EventState {
     event: Event | null
 }
+ 
+export interface Organizer{
+    id: number,
+    organizationName: String,
+    address : String
+}

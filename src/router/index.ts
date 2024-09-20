@@ -12,6 +12,7 @@ import nProgress from 'nprogress'
 import EventService from '@/services/EventService'
 import { useEventStore } from '@/stores/event'
 import AddEventView from '@/views/EventFormView.vue'
+import Addorg from '@/views/OrganizerFormView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -83,6 +84,11 @@ const router = createRouter({
       path: '/add-event',
       name: 'add-event',
       component: AddEventView
+    },
+    {
+      path: '/add-org',
+      name: 'add-org',
+      component: Addorg
     },
     {
       path: '/404/:resource',
