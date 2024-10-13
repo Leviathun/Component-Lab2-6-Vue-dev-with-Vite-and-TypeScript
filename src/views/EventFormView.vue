@@ -14,7 +14,10 @@ const event = ref<Event> ({
     date: '',
     time: '',
     petsAllowed: false,
-    organizer: ''
+    organizer: {
+      id: 0,
+      name: ''
+    }
 })
 const router = useRouter()
 const store = useMessageStore()
