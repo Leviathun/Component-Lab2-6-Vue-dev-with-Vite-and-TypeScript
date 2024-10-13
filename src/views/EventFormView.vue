@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router';
 import type { Event } from '@/types'
 import { ref } from 'vue'
 import { useMessageStore } from '@/stores/message';
+import BaseInput from '@/components/BaseInput.vue';
 const event = ref<Event> ({
     id: 0,
     category: '',
@@ -42,11 +43,11 @@ function saveEvent() {
       <form @submit.prevent="saveEvent" class="space-y-6">
         <div>
           <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
-          <input
+          <BaseInput
             v-model="event.category"
             id="category"
             type="text"
-            placeholder="Category"
+            label="Category"
             class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
@@ -56,23 +57,23 @@ function saveEvent() {
           <div class="space-y-4">
             <div>
               <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-              <input
+              <BaseInput
                 v-model="event.title"
                 id="title"
                 type="text"
-                placeholder="Title"
+                label="Title"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
             <div>
               <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-              <textarea
+              <BaseInput
                 v-model="event.description"
                 id="description"
-                placeholder="Description"
+                label="Description"
                 rows="3"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              ></textarea>
+              />
             </div>
           </div>
         </div>
@@ -81,11 +82,11 @@ function saveEvent() {
           <h3 class="text-xl font-semibold mb-3 mt-[50px]">Where is your event?</h3>
           <div>
             <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location</label>
-            <input
+            <BaseInput
               v-model="event.location"
               id="location"
               type="text"
-              placeholder="Location"
+              label="Location"
               class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
