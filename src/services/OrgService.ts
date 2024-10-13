@@ -19,5 +19,8 @@ export default {
     },
     saveOrg(organizer: Organizer) {
         return apiClient.post('/organizers', organizer)
+    },
+    getOrganizers() {
+        return apiClient.get('/organizers')
     }
 }
