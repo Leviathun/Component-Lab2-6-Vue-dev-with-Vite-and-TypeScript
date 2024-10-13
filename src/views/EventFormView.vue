@@ -42,7 +42,6 @@ function saveEvent() {
       <h1 class="text-3xl font-bold mb-6">Create an event</h1>
       <form @submit.prevent="saveEvent" class="space-y-6">
         <div>
-          <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
           <BaseInput
             v-model="event.category"
             id="category"
@@ -56,7 +55,6 @@ function saveEvent() {
           <h3 class="text-xl font-semibold mb-3 mt-[50px]">Name & describe your event</h3>
           <div class="space-y-4">
             <div>
-              <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
               <BaseInput
                 v-model="event.title"
                 id="title"
@@ -66,7 +64,6 @@ function saveEvent() {
               />
             </div>
             <div>
-              <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
               <BaseInput
                 v-model="event.description"
                 id="description"
@@ -81,7 +78,6 @@ function saveEvent() {
         <div>
           <h3 class="text-xl font-semibold mb-3 mt-[50px]">Where is your event?</h3>
           <div>
-            <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location</label>
             <BaseInput
               v-model="event.location"
               id="location"
