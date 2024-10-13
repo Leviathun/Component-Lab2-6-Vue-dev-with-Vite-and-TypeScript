@@ -6,7 +6,9 @@ import type { Event, Organizer } from '@/types'
 import { ref, onMounted } from 'vue'
 import { useMessageStore } from '@/stores/message';
 import BaseInput from '@/components/BaseInput.vue';
+import BaseSelect from '@/components/BaseSelect.vue';
 import OrganizerService from '@/services/OrgService'
+import { options } from 'node_modules/axios/index.cjs';
 const event = ref<Event> ({
     id: 0,
     category: '',
@@ -103,18 +105,11 @@ onMounted(() => {
           <h3 class="text-xl font-semibold mb-3 mt-[50px]">Who is your organizer?</h3>
           <div>
             <label>Select an Organizer</label>
-            <select 
+            <BaseSelect 
               v-model="event.organizer.id" 
-              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-              <option
-                v-for="option in organizers"
-                :value="option.id"
-                :key="option.id"
-                :selected="option.id === event.organizer.id"
-              >
-                {{ option.name }}
-              </option>
-            </select>
+              :options="organizers" 
+              label="Organizer"
+            />
           </div>
         </div>
   
