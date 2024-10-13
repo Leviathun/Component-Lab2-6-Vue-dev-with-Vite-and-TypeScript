@@ -11,7 +11,7 @@ const apiClient = axios.create({
 })
 
 export default {
-    getEvents(perPage: Number, page: Number) {
+    /*getEvents(perPage: Number, page: Number) {
         return apiClient.get('/events?_limit=' + perPage + '&_page=' + page)
     },
     getEvent(id: number) {
@@ -19,7 +19,7 @@ export default {
     },
     saveOrg(organizer: Organizer) {
         return apiClient.post('/organizers', organizer)
-    },
+    },*/
     getOrganizers() {
         return apiClient.get('/organizers')
     }

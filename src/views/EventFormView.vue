@@ -3,7 +3,7 @@
 import EventService from '@/services/EventService';
 import { useRouter } from 'vue-router';
 import type { Event, Organizer } from '@/types'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useMessageStore } from '@/stores/message';
 import BaseInput from '@/components/BaseInput.vue';
 import OrganizerService from '@/services/OrgService'
@@ -36,7 +36,7 @@ function saveEvent() {
             router.push({ name: 'network-error-view' })
         })
 }
-const organizers = ref<Organizer[]> ([])
+const organizers = ref<Organizer[]>([])
 onMounted(() => {
   OrganizerService.getOrganizers()
   .then((response) => {
