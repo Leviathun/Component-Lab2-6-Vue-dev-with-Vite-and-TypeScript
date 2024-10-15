@@ -2,13 +2,14 @@
 
 import EventService from '@/services/EventService';
 import { useRouter } from 'vue-router';
-import type { Event, Organizer,Participant  } from '@/types'
+import type { Event, Organizer, Participant  } from '@/types'
 import { ref, onMounted } from 'vue'
 import { useMessageStore } from '@/stores/message';
 import BaseInput from '@/components/BaseInput.vue';
 import BaseSelect from '@/components/BaseSelect.vue';
 import OrganizerService from '@/services/OrgService'
 import { options } from 'node_modules/axios/index.cjs';
+import ImageUpload from '@/components/ImageUpload.vue';
 const event = ref<Event> ({
     id: 0,
     category: '',
@@ -26,7 +27,8 @@ const event = ref<Event> ({
       id: 0,
       name: '',
       telNo: ''
-    }
+    },
+    images: []
 })
 const router = useRouter()
 const store = useMessageStore()
@@ -115,6 +117,8 @@ onMounted(() => {
               :options="organizers" 
               label="Organizer"
             />
+            <h3>The image of the Event</h3>
+            <ImageUpload v-model="event.images" />
           </div>
         </div>
   
@@ -129,7 +133,7 @@ onMounted(() => {
       <pre class="mt-8 p-4 bg-gray-100 rounded-md overflow-auto">{{ event }}</pre>
     </div>
   </template>
-  
+
 <style scoped src="@/assets/form-style.css"></style>
 <!-- <script setup lang="ts">
 import type { EventItem } from '@/type'

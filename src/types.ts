@@ -7,8 +7,9 @@ export interface Event {
     date: string,
     time: string,
     petsAllowed: boolean,
-    organizer: Organizer
-    participant: Participant[]
+    organizer: Organizer,
+    participant: Participant[],
+    images: string[]
 }
 export interface Student{
     id: number,
