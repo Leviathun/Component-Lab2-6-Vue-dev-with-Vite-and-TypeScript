@@ -134,7 +134,7 @@ onMounted(() => {
     </div>
   </template>
 
-<style scoped src="@/assets/form-style.css"></style>
+
 <!-- <script setup lang="ts">
 import type { EventItem } from '@/type'
 import { ref } from 'vue'
