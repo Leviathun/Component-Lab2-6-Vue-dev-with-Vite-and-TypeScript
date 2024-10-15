@@ -16,10 +16,10 @@ export default {
     },
     getEvent(id: number) {
         return apiClient.get('/events/' + id)
-    },
+    },*/
     saveOrg(organizer: Organizer) {
         return apiClient.post('/organizers', organizer)
-    },*/
+    },
     getOrganizers() {
         return apiClient.get('/organizers')
     }

@@ -2,7 +2,7 @@
 
 import EventService from '@/services/EventService';
 import { useRouter } from 'vue-router';
-import type { Event, Organizer } from '@/types'
+import type { Event, Organizer,Participant  } from '@/types'
 import { ref, onMounted } from 'vue'
 import { useMessageStore } from '@/stores/message';
 import BaseInput from '@/components/BaseInput.vue';
@@ -21,6 +21,11 @@ const event = ref<Event> ({
     organizer: {
       id: 0,
       name: ''
+    },
+    participant: {
+      id: 0,
+      name: '',
+      telNo: ''
     }
 })
 const router = useRouter()
@@ -124,7 +129,8 @@ onMounted(() => {
       <pre class="mt-8 p-4 bg-gray-100 rounded-md overflow-auto">{{ event }}</pre>
     </div>
   </template>
-
+  
+<style scoped src="@/assets/form-style.css"></style>
 <!-- <script setup lang="ts">
 import type { EventItem } from '@/type'
 import { ref } from 'vue'

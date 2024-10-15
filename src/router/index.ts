@@ -13,6 +13,7 @@ import EventService from '@/services/EventService'
 import { useEventStore } from '@/stores/event'
 import AddEventView from '@/views/EventFormView.vue'
 import Addorg from '@/views/OrganizerFormView.vue'
+import AuctionItemListView from '@/views/AuctionItemList.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -105,6 +106,12 @@ const router = createRouter({
       path: '/:catchAll(.*)',
       name: 'not-found',
       component: NotFoundView
+    },
+    {
+      path: '/auction-item',
+      name: 'auction-item',
+      component: AuctionItemListView,
+      props: (route) => ({ page: parseInt(route.query.page?.toString() || '1') })
     },
     {
       path: '/student',

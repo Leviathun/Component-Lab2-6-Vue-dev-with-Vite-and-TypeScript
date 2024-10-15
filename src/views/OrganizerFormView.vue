@@ -7,8 +7,8 @@ import { ref } from 'vue'
 import { useMessageStore } from '@/stores/message';
 const organizer = ref<Organizer> ({
     id: 0,
-    organizationName: "",
-    address : ""
+    name: "",
+    address:""
 })
 const router = useRouter()
 const store = useMessageStore()
@@ -36,7 +36,7 @@ function saveEvent() {
           <div>
             <label for="organizationName" class="block text-sm font-medium text-gray-700 mb-1">Organization Name</label>
             <input
-              v-model="organizer.organizationName"
+              v-model="organizer.name"
               id="organizationName"
               type="text"
               placeholder="Organization Name"
