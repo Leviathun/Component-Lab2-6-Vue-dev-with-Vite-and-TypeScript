@@ -26,16 +26,9 @@
 const pageSize = ref(props.pageSize);
 
 const page = computed (() => props.page)
-  onMounted (() => {
+  onMounted(() => {
     watchEffect(() => {
-      EventService.getEvents(pageSize.value, page.value)
-        .then((response) => {
-          events.value = response.data
-          totalEvents.value = parseInt(response.headers['x-total-count']);
-        })
-        .catch((error) => {
-          console.error('There was an error!', error)
-        })
+      updateKeyword()
     })
   })
   
@@ -48,13 +41,15 @@ const page = computed (() => props.page)
     pageSize.value = size;
     router.push({ query: { ...route.query, pageSize: size, page: 1 }});
   };
+
   const keyword= ref('')
-  function updateKeyword (value: string) {
+  
+  function updateKeyword(value: string) {
     let queryFunction;
     if (keyword.value === '') {
-      queryFunction = EventService.getEvents(3, page.value)
+      queryFunction = EventService.getEvents(pageSize.value, page.value)
     }else {
-      queryFunction = EventService.getEventsByKeyword(keyword.value, 3, page.value)
+      queryFunction = EventService.getEventsByKeyword(keyword.value, 1, page.value)
     }
     queryFunction.then((response) => {
       events.value = response.data
@@ -102,8 +97,8 @@ const page = computed (() => props.page)
   <div class="page-size">
       <label for="page-size">Events per page: </label>
       <select class="border rounded" v-model="pageSize" @change="updatePageSize(pageSize)">
-        <option :value="2">2</option>
-        <option :value="5">5</option>
+        <option :value="1">1</option>
+        <option :value="3">3</option>
         <option :value="10">10</option>
       </select>
     </div>
