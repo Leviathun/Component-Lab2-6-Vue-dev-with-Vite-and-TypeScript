@@ -15,6 +15,7 @@ const convertStringToMedia = (str: string[]): any => {
   });
 };
 const emit = defineEmits(['update:modelValue']);
+
 const convertMediaToString = (media: any): string[] => {
   const output: string[] = [];
   media.forEach((element: any) => {
@@ -22,6 +23,7 @@ const convertMediaToString = (media: any): string[] => {
   });
   return output;
 };
+
 const media = ref(convertStringToMedia(props.modelValue));
 const uploadUrl = ref(import.meta.env.VITE_UPLOAD_URL);
 const onChanged = (files: any) => {

@@ -2,13 +2,12 @@
 
 import EventService from '@/services/EventService';
 import { useRouter } from 'vue-router';
-import type { Event, Organizer, Participant  } from '@/types'
+import type { Event, Organizer } from '@/types'
 import { ref, onMounted } from 'vue'
 import { useMessageStore } from '@/stores/message';
 import BaseInput from '@/components/BaseInput.vue';
 import BaseSelect from '@/components/BaseSelect.vue';
 import OrganizerService from '@/services/OrgService'
-import { options } from 'node_modules/axios/index.cjs';
 import ImageUpload from '@/components/ImageUpload.vue';
 const event = ref<Event> ({
     id: 0,
@@ -21,17 +20,16 @@ const event = ref<Event> ({
     petsAllowed: false,
     organizer: {
       id: 0,
-      name: ''
-    },
-    participant: {
-      id: 0,
       name: '',
-      telNo: ''
+      address: '',
+      imageUrl: []
     },
+    participant: [],
     images: []
 })
 const router = useRouter()
 const store = useMessageStore()
+
 function saveEvent() {
     EventService.saveEvent(event.value)
         .then((response) => {
@@ -45,6 +43,7 @@ function saveEvent() {
             router.push({ name: 'network-error-view' })
         })
 }
+
 const organizers = ref<Organizer[]>([])
 onMounted(() => {
   OrganizerService.getOrganizers()

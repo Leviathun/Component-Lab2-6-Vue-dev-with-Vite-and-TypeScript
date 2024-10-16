@@ -49,7 +49,7 @@ const page = computed (() => props.page)
     if (keyword.value === '') {
       queryFunction = EventService.getEvents(pageSize.value, page.value)
     }else {
-      queryFunction = EventService.getEventsByKeyword(keyword.value, 1, page.value)
+      queryFunction = EventService.getEventsByKeyword(keyword.value, 3, page.value)
     }
     queryFunction.then((response) => {
       events.value = response.data

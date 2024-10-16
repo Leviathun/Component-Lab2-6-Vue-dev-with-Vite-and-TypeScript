@@ -31,7 +31,8 @@ export interface EventState {
 export interface Organizer{
     id: number,
     name: String,
-    address: String
+    address: String,
+    imageUrl: string[]
 }
 
 export interface Participant {

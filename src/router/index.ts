@@ -14,6 +14,9 @@ import { useEventStore } from '@/stores/event'
 import AddEventView from '@/views/EventFormView.vue'
 import Addorg from '@/views/OrganizerFormView.vue'
 import AuctionItemListView from '@/views/AuctionItemList.vue'
+import OrganizerDetail from '@/views/OrganizerDetail.vue'
+import Organizerlist from '@/views/OrganizerView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -80,6 +83,18 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       
       component: AboutView
+    },
+    {
+      path: '/organizer',
+      name: 'organizer-list-view',
+      component: Organizerlist, 
+      props: true
+    },
+    {
+      path: '/organizer/:id',
+      name: 'organizer-detail-view',
+      component: OrganizerDetail, 
+      props: true
     },
     {
       path: '/add-event',
