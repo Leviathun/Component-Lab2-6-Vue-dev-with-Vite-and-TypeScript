@@ -16,6 +16,7 @@ import Addorg from '@/views/OrganizerFormView.vue'
 import AuctionItemListView from '@/views/AuctionItemList.vue'
 import OrganizerDetail from '@/views/OrganizerDetail.vue'
 import Organizerlist from '@/views/OrganizerView.vue'
+import LoginView from '@/views/LoginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -131,11 +132,12 @@ const router = createRouter({
     {
       path: '/student',
       name: 'student',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      
       component: StudentService
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
     }
   ],
   scrollBehavior(to, from, savedPosition) {
